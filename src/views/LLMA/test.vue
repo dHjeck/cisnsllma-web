@@ -9,17 +9,8 @@
       >
       <el-row :gutter="20">
         <el-card style="max-width: 480px; max-height: 300px; overflow: hidden">
-          <el-scrollbar>
-            <el-text
-              v-for="(item, index) in items"
-              :key="index"
-              class="text item"
-              >{{ item }}</el-text
-            >
-            <el-text v-if="items.length === 0" class="text item"
-              >当前内容为空</el-text
-            >
-          </el-scrollbar>
+          <pre>{{ items }}</pre>
+          <p v-if="error">{{ error }}</p>
         </el-card>
       </el-row>
     </el-main>
@@ -28,12 +19,8 @@
 
 <script lang="ts">
 import axios from "axios";
-import { ElText } from "element-plus";
 
 export default {
-  components: {
-    ElText
-  },
   data() {
     return {
       items: "",
