@@ -31,6 +31,14 @@ export default {
       meta: {
         title: "test"
       }
+    },
+    {
+      path: "/LLMA/chat",
+      name: "chat",
+      component: () => import("@/views/LLMA/chat.vue"),
+      meta: {
+        title: "chat"
+      }
     }
   ]
 } as RouteConfigsTable;
