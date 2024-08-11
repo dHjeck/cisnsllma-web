@@ -19,26 +19,27 @@ export default {
     {
       path: "/LLMA/result",
       name: "结果",
-      component: () => import("@/views/LLMA/result.vue"),
+      component: () => import("@/views/LLMA/test.vue"),
       meta: {
         title: "结果"
       }
-    },
-    {
-      path: "/LLMA/test",
-      name: "test",
-      component: () => import("@/views/LLMA/test.vue"),
-      meta: {
-        title: "test"
-      }
-    },
-    {
-      path: "/LLMA/chat",
-      name: "chat",
-      component: () => import("@/views/LLMA/chat.vue"),
-      meta: {
-        title: "chat"
-      }
     }
+    // },
+    // {
+    //   path: "/LLMA/test",
+    //   name: "test",
+    //   component: () => import("@/views/LLMA/test.vue"),
+    //   meta: {
+    //     title: "test"
+    //   }
+    // }
+    // {
+    //   path: "/LLMA/chat",
+    //   name: "chat",
+    //   component: () => import("@/views/LLMA/chat.vue"),
+    //   meta: {
+    //     title: "chat"
+    //   }
+    // }
   ]
 } as RouteConfigsTable;

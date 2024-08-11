@@ -80,7 +80,9 @@ export default {
   methods: {
     downloadfile() {
       axios
-        .get("http://127.0.0.1:5000/llma/download", { responseType: "blob" })
+        .get("http://192.168.200.134:5000/llma/download", {
+          responseType: "blob"
+        })
         .then(response => {
           const url = window.URL.createObjectURL(new Blob([response.data]));
           const link = document.createElement("a");
@@ -97,7 +99,7 @@ export default {
     },
     fetchFileContent() {
       axios
-        .get("http://localhost:5000/llma/textresult") // 替换为你的后端地址和端口
+        .get("http://192.168.200.134:5000/llma/textresult") // 替换为你的后端地址和端口
         .then(response => {
           this.items = response.data.content;
         })
@@ -111,7 +113,7 @@ export default {
     },
     getScore() {
       axios
-        .get("http://localhost:5000/llma/score") // 替换为你的后端地址和端口
+        .get("http://192.168.200.134:5000/llma/score") // 替换为你的后端地址和端口
         .then(response => {
           this.you_score = response.data.score;
         }).catch;

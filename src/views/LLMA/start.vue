@@ -74,7 +74,7 @@ const input = ref(""); // 使用ref管理输入值
 const _submit = async () => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:5000/api/submit",
+      "http://192.168.200.134:5000/api/submit",
       {
         target: input.value
       },
@@ -111,7 +111,7 @@ const _submit = async () => {
 };
 const run_scan = async () => {
   try {
-    const response = await axios.get("http://127.0.0.1:5000/llma/scan");
+    const response = await axios.get("http://192.168.200.134:5000/llma/scan");
 
     if (response.status === 200) {
       console.log("请求成功，响应状态码：", response.status);
