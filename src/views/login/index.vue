@@ -39,25 +39,34 @@ const ruleForm = reactive({
 
 const onLogin = async (formEl: FormInstance | undefined) => {
   loading.value = true;
-  if (!formEl) return;
-  await formEl.validate((valid, fields) => {
-    if (valid) {
-      useUserStoreHook()
-        .loginByUsername({ username: ruleForm.username, password: "admin123" })
-        .then(res => {
-          if (res.success) {
-            // 获取后端路由
-            initRouter().then(() => {
-              router.push(getTopMenu(true).path);
-              message("登录成功", { type: "success" });
-            });
-          }
-        });
+  if (!formEl) {
+    loading.value = false;
+    return;
+  }
+
+  try {
+    await formEl.validate(); // 表单验证
+
+    const userStore = useUserStoreHook();
+    const res = await userStore.loginByUsername({
+      username: ruleForm.username,
+      password: ruleForm.password
+    });
+
+    if (res.success) {
+      await initRouter(); // 初始化路由
+      const topMenuPath = getTopMenu(true).path;
+      router.push(topMenuPath); // 跳转到主页面
+      message("登录成功", { type: "success" });
     } else {
-      loading.value = false;
-      return fields;
+      message("登录失败，请检查用户名和密码", { type: "error" });
     }
-  });
+  } catch (error) {
+    console.error("登录过程中发生错误：", error);
+    message("登录失败，请稍后重试", { type: "error" });
+  } finally {
+    loading.value = false;
+  }
 };
 
 /** 使用公共函数，避免`removeEventListener`失效 */
