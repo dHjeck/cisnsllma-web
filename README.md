@@ -1,6 +1,6 @@
 # cisnsllma-web
 
-本项目基于 pure-admin-thin 主要用于参加比赛
+
 
 ## 安装依赖
 
