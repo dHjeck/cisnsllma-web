@@ -1,0 +1,13 @@
+diff --git a/dist/mock.js b/dist/mock.js
+index 35d5b9af3eff34324656879705dcb81470fc9697..d53bef8ed2d3b89e692fd64ba95e4a1397553c9c 100644
+--- a/dist/mock.js
++++ b/dist/mock.js
+@@ -734,6 +734,8 @@ return /******/ (function(modules) { // webpackBootstrap
+ 	        if (!options) continue
+ 
+ 	        for (name in options) {
++	            // Security fix: skip prototype-polluting keys (GHSA mockjs Util.extend)
++	            if (name === '__proto__' || name === 'constructor' || name === 'prototype') continue
+ 	            src = target[name]
+ 	            copy = options[name]
+ 

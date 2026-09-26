@@ -18,6 +18,8 @@ import "./style/index.scss";
 // 一定要在main.ts中导入tailwind.css，防止vite每次hmr都会请求src/style/index.scss整体css文件导致热更新慢的问题
 import "./style/tailwind.css";
 import "element-plus/dist/index.css";
+// element-plus 暗色模式变量（预编译 css，替代原 dark.scss 中对 scss 源码的 @use）
+import "element-plus/theme-chalk/dark/css-vars.css";
 // 导入字体图标
 import "./assets/iconfont/iconfont.js";
 import "./assets/iconfont/iconfont.css";

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "strict": false,
     "jsx": "preserve",
     "importHelpers": true,
@@ -22,13 +22,7 @@
       "@/*": ["src/*"],
       "@build/*": ["build/*"]
     },
-    "types": [
-      "node",
-      "vite/client",
-      "element-plus/global",
-      "@pureadmin/table/volar",
-      "@pureadmin/descriptions/volar"
-    ]
+    "types": ["node", "vite/client"]
   },
   "include": [
     "mock/*.ts",

@@ -1,6 +1,7 @@
-@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
-
 /* 暗黑模式适配 */
+
+/* 注：element-plus 暗色变量已改用预编译 css（见 main.ts 的 theme-chalk/dark/css-vars.css 引入），
+   避免 sass 编译 element-plus 新版 scss 源码（需要 sass>=1.79） */
 html.dark {
   /* 自定义深色背景颜色 */
   // --el-bg-color: #020409;
