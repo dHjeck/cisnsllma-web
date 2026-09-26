@@ -77,7 +77,7 @@ function hoverDescription(event, description) {
         </el-tooltip>
         <el-tag
           v-if="props.noticeItem?.extra"
-          :type="props.noticeItem?.status"
+          :type="props.noticeItem?.status || 'primary'"
           size="small"
           class="notice-title-extra"
         >

@@ -17,10 +17,12 @@
 
 <script lang="ts">
 import axios from "axios";
+import { ref } from "vue";
 import { ElMessage } from "element-plus";
 
 export default {
   setup() {
+    const tableData = ref([]);
     const download = async () => {
       try {
         const response = await axios.get("http://localhost:5000/download");
@@ -31,6 +33,7 @@ export default {
       ElMessage("下载成功");
     };
     return {
+      tableData,
       download
     };
   }
@@ -40,8 +43,8 @@ export default {
 <style lang="scss" scoped>
 .card-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .text {

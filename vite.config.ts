@@ -37,8 +37,6 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     },
     // 服务端渲染
     server: {
-      // 是否开启 https
-      https: false,
       // 端口号
       port: VITE_PORT,
       host: "0.0.0.0",
@@ -46,6 +44,15 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       proxy: {}
     },
     plugins: getPluginsList(command, VITE_CDN, VITE_COMPRESSION),
+    // @pureadmin/theme 的 getSass 只包装了 sass.render（legacy API），
+    // vite6 默认走 modern API 会绕过主题变量注入（$menuBg 等），故强制 legacy
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "legacy"
+        }
+      }
+    },
     // https://cn.vitejs.dev/config/dep-optimization-options.html#dep-optimization-options
     optimizeDeps: {
       include,
