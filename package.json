@@ -153,7 +153,7 @@
       "cross-spawn": ">=7.0.5",
       "defu": ">=6.1.5",
       "flatted": ">=3.4.2",
-      "follow-redirects": ">=1.16.1",
+      "follow-redirects": ">=1.16.2",
       "source-map-js": ">=1.2.2",
       "form-data": ">=4.0.6",
       "path-to-regexp": ">=6.3.0 <7",
